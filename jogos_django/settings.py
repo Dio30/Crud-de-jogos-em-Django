@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'jogos_django.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-DATABASES = {{ 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }}
+DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
 
 # Password validation
