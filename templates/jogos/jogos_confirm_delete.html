@@ -11,8 +11,8 @@
 <h1>Tem certeza que deseja deletar o cliente {{ object.nome_do_jogo }}?</h1>
     <form method="post" action=".">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar?')">Delete</button><br>
-        <br><a href="{% url 'lista' %}">Para voltar a lista</a>
+        <button type="submit" title="Deletar"class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar?')">Delete</button>
+        <a href="{% url 'lista' %}" class="btn btn-primary" title="Lista">Para voltar a lista</a>
 
     </form>
 {% endblock %}
