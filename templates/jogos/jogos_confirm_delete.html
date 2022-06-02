@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} Confirmação de Delete {% endblock %}
+
+{% block main %}
+
+{% include 'mensagens.html' %}
+
+<h1>Tem certeza que deseja deletar o cliente {{ object.nome_do_jogo }}?</h1>
+    <form method="post" action=".">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar?')">Delete</button><br>
+        <br><a href="{% url 'lista' %}">Para voltar a lista</a>
+
+    </form>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <center><span class="text">Desenvolvido por Dione Rafael Padilha</span></center>
+        </div>
+    </footer>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} Jogos {% endblock %}
+
+{% block main %}
+
+{% include 'mensagens.html' %}
+
+<div class="row">
+    <div class="col">
+    </div>
+
+    <div class="col">
+        <br><h1>Lista de jogos</h1>
+        <form method="GET" action="." class="form">
+          <br><input type="text" name="nome_do_jogo" value="{{ request.GET.nome_do_jogo }}" class="p-1 border" 
+            autocomplete="off" placeholder="Digite seu jogo aqui">
+
+            <button type="submit" class="btn btn-success btn-sm">Buscar</button>
+
+            <a href="{% url 'lista' %}" class="btn btn-dark btn-sm">Limpar</a>
+        </form>
+    </div>
+
+    <div class="col-2">
+        {% if user.is_authenticated %}
+
+            <br><p>Olá {{ user.username }} 
+                <a href="{% url 'logout' %}" class="btn btn-info" title="Sair" 
+                onclick="return confirm('Tem certeza que deseja sair?')">Sair</a></button></p>
+    
+        {% endif %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+
+    </div>
+
+    <div class="col-x">
+        <br><table class="table table-bordered table-hover">
+            <thead class="mythead">
+                <tr>
+                    <th>Código</th>
+                    <th>Nome do Jogo</th>
+                    <th>Tipo de Jogo</th>
+                    <th>Valor do Jogo</th>
+                    <th>Descrição do Jogo</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody class="mytbody">
+                <tr>
+            {% for jogo in object_list %}
+                    <td>ID - {{ jogo.id }}</td>
+                    <td>{{ jogo.nome_do_jogo }}</td> 
+                    <td>{{ jogo.tipo_de_jogo }}</td>
+                    <td>R$ {{ jogo.valor_do_jogo }}</td>
+                    <td>{{ jogo.descrição_do_jogo }}</td>
+                    <td><a href="{% url 'editar' jogo.pk %}" title="Editar"class="btn btn-warning btn-sm">
+                        <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    <a href="{% url 'delete' jogo.pk %}" title="Deletar" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col">
+
+    </div>
+
+</div>
+
+<br><center><a href="{% url 'novo' %}" class="btn btn-primary">Criar Jogo</a></center><br><br>
+
+<ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+
+        {% if request.GET.nome_do_jogo %}
+
+        <li class="page-item"><a class="page-link" href="?page=1&nome={{ request.GET.nome_do_jogo }}">&laquo; Primeira</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}&nome={{ request.GET.nome_do_jogo }}">Anterior</a></li>
+        
+        {% else %}
+
+        <li class="page-item"><a class="page-link" href="?page=1">&laquo; Primeira</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
+        
+        {% endif %}
+    
+    {% endif %}
+
+    <li class="page-item">
+        <span class="page-link">Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.</span>
+    </li>
+    {% if page_obj.has_next %}
+
+        {% if request.GET.nome_do_jogo %}
+
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}&nome={{ request.GET.nome_do_jogo }}">Próxima</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&nome={{ request.GET.nome_do_jogo }}">Última</a></li>
+        {% else %}
+
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Próxima</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última</a></li>
+        
+        {% endif %}
+
+    {% endif %}
+</ul>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+            
+                </div>
+            
+                <div class="col-x">
+                <center><span class="text">Desenvolvido por Dione Rafael Padilha</span></center>
+                </div>
+                
+                <div class="col">
+                
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

@@ -1,0 +1,1 @@
+web: gunicorn jogos_django.wsgi
