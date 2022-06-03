@@ -13,7 +13,7 @@
     </div>
 
     <div class="col">
-        <br><h1>Lista de jogos</h1>
+        <br><u><h1>Lista de jogos</h1></u>
         <form method="GET" action="." class="form">
           <br><input type="text" name="nome_do_jogo" value="{{ request.GET.nome_do_jogo }}" class="p-1 border" 
             autocomplete="off" placeholder="Digite seu jogo aqui">
@@ -27,7 +27,7 @@
     <div class="col-2">
         {% if user.is_authenticated %}
 
-            <br><p>Olá {{ user.username }} 
+            <br><b><p>Olá {{ user.username }} </b>
                 <a href="{% url 'logout' %}" class="btn btn-info" title="Sair" 
                 onclick="return confirm('Tem certeza que deseja sair?')">Sair</a></button></p>
     
@@ -56,7 +56,7 @@
             <tbody class="mytbody">
                 <tr>
             {% for jogo in object_list %}
-                    <td>ID - {{ jogo.id }}</td>
+                    <td>Nº {{ jogo.id }}</td>
                     <td>{{ jogo.nome_do_jogo }}</td> 
                     <td>{{ jogo.tipo_de_jogo }}</td>
                     <td>R$ {{ jogo.valor_do_jogo }}</td>
