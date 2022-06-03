@@ -1,7 +1,6 @@
 @media only screen and (max-device-width: 1080rem){
-    body{width: 100%; height: 100%;};
-    .container{width: 100%; height: 100%;};
-    footer{width: 100%; height: 100%;};
+    body{width: 100%; height: 100%; box-sizing: border-box;};
+    .container{width: 100%; height: 100%; box-sizing: border-box;};
 }
 
 body{

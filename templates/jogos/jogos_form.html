@@ -13,7 +13,15 @@
     <form method="post" action=".">
         {% csrf_token %}
         <b>{{ form|bootstrap }}</b>
-        <button type="submit" class="btn btn-primary btm-sm">Salvar</button><br>
-        <center><a href="{% url 'lista' %}">Para voltar para a lista</a></center>
+        <button type="submit" class="btn btn-success btm-sm">Salvar</button><br><br>
+        <center><a href="{% url 'lista' %}" class="btn btn-primary btm-sm">Para voltar para a lista</a></center>
     </form>
+{% endblock %}
+
+{% block footer %}
+<footer class="footer">
+    <div class="container">
+        <center><span class="text">Desenvolvido por Dione Rafael Padilha</span></center>
+    </div>
+</footer>
 {% endblock %}
