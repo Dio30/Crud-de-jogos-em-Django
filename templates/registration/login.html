@@ -9,7 +9,7 @@
 {% include 'mensagens.html' %}
 
 <h1>Login</h1><br>
-    <form method="POST" action="{% url 'login' %}" class="myform">
+    <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
         {{ login_form|bootstrap }}
         <br>

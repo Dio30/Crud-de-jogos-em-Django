@@ -9,7 +9,7 @@
 {% block main %}
 
 {% include 'mensagens.html' %}
-<center><h1>{{ titulo }}</h1></center><br>
+<center><h2>{{ titulo }}</h2></center><br>
     <form method="post" action=".">
         {% csrf_token %}
         <b>{{ form|bootstrap }}</b>

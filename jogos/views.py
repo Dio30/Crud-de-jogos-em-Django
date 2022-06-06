@@ -9,7 +9,7 @@ class JogosList(LoginRequiredMixin, ListView):
     model = Jogos
     queryset = Jogos.objects.order_by('nome_do_jogo').all()
     login_url = reverse_lazy('login')
-    paginate_by = 3
+    paginate_by = 4
     
     def get_queryset(self):
         self.object_list = Jogos.objects.filter(usuario=self.request.user)
