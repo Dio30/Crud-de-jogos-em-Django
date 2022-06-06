@@ -9,12 +9,12 @@
 {% include 'mensagens.html' %}
 
 <div class="row">
-    <div class="col-2">
+    <div class="col-3">
         <br><a href="{% url 'home' %}" class="btn btn-primary" title="Pagina Principal" 
         onclick="return confirm('Tem certeza que deseja voltar a pagina inicial?')">Home</a>
     </div>
 
-    <div class="col">
+    <div class="col-6">
         <br><u><h2>Lista de jogos</h2></u>
         <center><form method="GET" action="." class="myform">
           <br><input type="text" name="nome_do_jogo" value="{{ request.GET.nome_do_jogo }}" class="p-1 border" 
@@ -22,7 +22,7 @@
 
             <button type="submit" class="btn btn-success btn-sm">Buscar</button>
 
-            <a href="{% url 'lista' %}" class="btn btn-dark btn-sm">Limpar</a></center>
+            <a href="{% url 'lista' %}" class="btn btn-dark btn-sm">Limpar</a></center><br>
         </form>
     </div>
 
@@ -30,7 +30,7 @@
         {% if user.is_authenticated %}
 
             <center><br><b>Olá {{ user.username }}</b>
-                <a href="{% url 'logout' %}" class="btn btn-danger" title="Sair" 
+                <a href="{% url 'logout' %}" class="btn btn-danger btn-sm" title="Sair" 
                 onclick="return confirm('Tem certeza que deseja sair?')">Sair</a></center>
     
         {% endif %}
@@ -38,12 +38,12 @@
 </div>
 
 <div class="row">
-    <div class="col">
+    <div class="col-">
 
     </div>
 
-    <div class="col">
-        <br><table class="table table-bordered table-hover">
+    
+        <table class="table table-bordered table-hover">
             <thead class="mythead">
                 <tr>
                     <th>Código</th>
@@ -71,9 +71,9 @@
             {% endfor %}
             </tbody>
         </table>
-    </div>
+    
 
-    <div class="col">
+    <div class="col-">
 
     </div>
 
