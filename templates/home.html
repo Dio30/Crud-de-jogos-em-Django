@@ -6,18 +6,29 @@
 
 {% include 'mensagens.html' %}
 
-<br><nav class="navbar navbar-expand-lg navbar-light" style="background-color:#23d626fc ;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<br><nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" 
+    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    </button>
+    {% if user.is_authenticated %}
+        <h5 class="text-white">Logout <a href="{% url 'logout' %}" 
+        class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja sair?')">Sair</a></h5>
+    {% else %}
+      
+      <a href="{% url 'cadastro' %}" class="btn btn-primary btn-sm" title="Cadastre-se">Cadastre-se</a>
+      <a href="{% url 'login' %}" class="btn btn-primary btn-sm" title="Login">Login</a> 
+   {% endif %}
+
+    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
             {% if user.is_authenticated %}
+                <li class="nav-link"><b>Olá {{ user.username }}</b></li>
                 <a class="nav-link" href="{% url 'lista' %}">Lista de Jogos<span class="sr-only"></span></a>
             {% else %}
             {% endif %}
-        </li>
+              </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/Dio30" target="_blank">GitHub</a>
         </li>
@@ -26,21 +37,18 @@
           <a class="nav-link" href="https://www.linkedin.com/in/dione-padilha-a99864234/" target="_blank">LinkedIn</a>
         </li>
       </ul>
-      {% if user.is_authenticated %}
-            <b>Olá {{ user.username }}</b>
-            <a href="{% url 'logout' %}" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja sair?')">Sair</a>
-        {% else %}
-        <a href="{% url 'login' %}" class="btn btn-primary btn-sm" title="Login">Login</a>  ou  
-        <a href="{% url 'cadastro' %}" class="btn btn-primary btn-sm" title="Cadastre-se">Cadastre-se</a>
-        {% endif %}
     </div>
   </nav>
 
   <center><u><h1>Bem Vindo</h1></u></center>
   {% if user.is_authenticated %}
+  <br><center><font size=+1><b><p>Para ver a lista de jogos e outras informações ou para 
+  saber meu GitHub ou LinkedIn clique no icone acima.</p></center></b></font>
+  
   {% else %}
   <br><b><font size=+1>Aqui voce pode listar, inserir, atualizar e deletar jogos a sua vontade. Entre em seu cadastro clicando em 
-  login ou cadastre-se para ter acesso aos jogos.</b></font>
+  login ou cadastre-se para ter acesso aos jogos ou para saber meu GitHub ou LinkedIn clique no icone acima.</b></font>
+  
   {% endif %}
 
 {% endblock %}
