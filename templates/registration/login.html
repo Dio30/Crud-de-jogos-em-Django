@@ -13,10 +13,10 @@
         {% csrf_token %}
         {{ login_form|bootstrap }}
         <br>
-        <button type="submit" class="btn btn-info">Login</button><br>
+        <button type="submit" class="btn btn-primary">Login</button><br>
         <br><br>
     </form>       
-        <br><br><p class="text-center">Não tem uma conta? <a href="{% url 'cadastro' %}">Crie uma conta aqui</a>.</p>  
+        <br><br><p class="text-center">Não tem uma conta? <a href="{% url 'cadastro' %}" class="btn btn-primary">Crie uma conta aqui</a></p>  
         
 {% endblock %}
 
