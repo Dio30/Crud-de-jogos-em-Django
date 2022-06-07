@@ -39,9 +39,7 @@
 
 <div class="row">
     <div class="col-">
-
     </div>
-
         <table class="table table-bordered table-hover">
             <thead class="mythead">
                 <tr>
@@ -70,13 +68,13 @@
             {% endfor %}
             </tbody>
         </table>
-    <div class="col-">
 
+    <div class="col-">
     </div>
 
 </div>
 
-<br><center><a href="{% url 'novo' %}" class="btn btn-primary">Criar Jogo</a></center><br><br>
+<br><center><a href="{% url 'novo' %}" class="btn btn-primary">Criar Jogo</a></center><br>
 
 <ul class="pagination justify-content-center">
     {% if page_obj.has_previous %}
@@ -118,6 +116,7 @@
 {% block footer %}
 <footer class="footer">
     <div class="container">
+        <br><br><br><br><br><br>
         <p class="text-center"><span class="text">Desenvolvido por Dione Rafael Padilha</span></p>
     </div>
 </footer>

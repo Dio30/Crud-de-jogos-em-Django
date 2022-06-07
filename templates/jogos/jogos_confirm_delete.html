@@ -8,7 +8,7 @@
 
 {% include 'mensagens.html' %}
 
-<h2>Tem certeza que deseja deletar o cliente {{ object.nome_do_jogo }}?</h2>
+<h3>Tem certeza que deseja deletar o cliente {{ object.nome_do_jogo }}?</h3>
     <form method="post" action=".">
         {% csrf_token %}
         <button type="submit" title="Deletar"class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar?')">Delete</button>
@@ -20,6 +20,7 @@
 {% block footer %}
     <footer class="footer">
         <div class="container">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <center><span class="text">Desenvolvido por Dione Rafael Padilha</span></center>
         </div>
     </footer>

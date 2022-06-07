@@ -12,10 +12,10 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     {% if user.is_authenticated %}
+        <a href="{% url 'lista' %}" class="btn btn-primary btn-sm">Lista de Jogos</a>
         <h5 class="text-white">Logout <a href="{% url 'logout' %}" 
         class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja sair?')">Sair</a></h5>
     {% else %}
-      
       <a href="{% url 'cadastro' %}" class="btn btn-primary btn-sm" title="Cadastre-se">Cadastre-se</a>
       <a href="{% url 'login' %}" class="btn btn-primary btn-sm" title="Login">Login</a> 
    {% endif %}
@@ -25,7 +25,6 @@
         <li class="nav-item active">
             {% if user.is_authenticated %}
                 <li class="nav-link"><b>Olá {{ user.username }}</b></li>
-                <a class="nav-link" href="{% url 'lista' %}">Lista de Jogos<span class="sr-only"></span></a>
             {% else %}
             {% endif %}
               </li>
@@ -39,11 +38,10 @@
       </ul>
     </div>
   </nav>
-
+<br>
   <center><u><h1>Bem Vindo</h1></u></center>
   {% if user.is_authenticated %}
-  <br><center><font size=+1><b><p>Para ver a lista de jogos e outras informações ou para 
-  saber meu GitHub ou LinkedIn clique no icone acima.</p></center></b></font>
+  <br><br><br><center><font size=+1><b><p>Para saber meu GitHub ou LinkedIn clique no icone acima.</p></center></b></font>
   
   {% else %}
   <br><b><font size=+1>Aqui voce pode listar, inserir, atualizar e deletar jogos a sua vontade. Entre em seu cadastro clicando em 
@@ -56,6 +54,7 @@
 {% block footer %}
     <footer class="footer">
         <div class="container">
+            <br><br><br><br><br><br><br><br><br><br><br>
             <center><span class="text">Desenvolvido por Dione Rafael Padilha</span></center>
         </div>
     </footer>
