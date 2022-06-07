@@ -43,26 +43,23 @@
         <table class="table table-bordered table-hover">
             <thead class="mythead">
                 <tr>
-                    <th>Código</th>
                     <th>Nome do Jogo</th>
                     <th>Tipo de Jogo</th>
                     <th>Valor do Jogo</th>
-                    <th>Descrição do Jogo</th>
-                    <th>Editar</th>
-                    <th>Deletar</th>
+                    <th>Código do Jogo</th>
+                    <th>Editar ou Deletar</th>
                 </tr>
             </thead>
             <br><tbody class="mytbody">
                 <tr>
             {% for jogo in object_list %}
-                    <td>Nº {{ jogo.id }}</td>
                     <td>{{ jogo.nome_do_jogo }}</td> 
                     <td>{{ jogo.tipo_de_jogo }}</td>
                     <td>R$ {{ jogo.valor_do_jogo }}</td>
                     <td>{{ jogo.descrição_do_jogo }}</td>
                     <td><a href="{% url 'editar' jogo.pk %}" title="Editar"class="btn btn-warning btn-sm">
-                        <i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-                    <td><a href="{% url 'delete' jogo.pk %}" title="Deletar" class="btn btn-danger btn-sm">
+                        <i class="fa fa-pencil" aria-hidden="true"></i></a> -- 
+                    <a href="{% url 'delete' jogo.pk %}" title="Deletar" class="btn btn-danger btn-sm">
                         <i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                 </tr>
             {% endfor %}
@@ -116,7 +113,7 @@
 {% block footer %}
 <footer class="footer">
     <div class="container">
-        <br><br><br><br><br><br>
+        <br><br><br>
         <center><span class="text">Desenvolvido por Dione Rafael Padilha</span></center>
     </div>
 </footer>
