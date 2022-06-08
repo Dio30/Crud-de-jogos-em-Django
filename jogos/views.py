@@ -54,7 +54,7 @@ class JogosUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['titulo'] = "Editar Cadastro de Jogos"
+        context['titulo'] = "Editar Jogos"
         return context
     
 class JogosDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):

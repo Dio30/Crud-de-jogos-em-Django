@@ -7,37 +7,33 @@
 {% include 'mensagens.html' %}
 
 <br><nav class="navbar navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" 
-    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" 
+    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" aria-hidden="false">
+    <span class="navbar-toggler-icon"></span></button>
+
     {% if user.is_authenticated %}
-        <a href="{% url 'lista' %}" class="btn btn-primary btn-sm">Lista de Jogos</a>
-        <h5 class="text-white">Logout <a href="{% url 'logout' %}" 
-        class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja sair?')">Sair</a></h5>
+        <ul class="nav justify-content-center">
+        <a href="{% url 'lista' %}" class="btn btn-primary btn-sm">Jogos</a></ul>
+        <ul class="nav justify-content-end">
+        <b class="text-white">Olá {{ user.username }}</b>-
+        <a href="{% url 'logout' %}" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja sair?')">Sair</a></ul>
     {% else %}
       <a href="{% url 'cadastro' %}" class="btn btn-primary btn-sm" title="Cadastre-se">Cadastre-se</a>
       <a href="{% url 'login' %}" class="btn btn-primary btn-sm" title="Login">Login</a> 
    {% endif %}
-
-    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            {% if user.is_authenticated %}
-                <li class="nav-link"><b>Olá {{ user.username }}</b></li>
-            {% else %}
-            {% endif %}
-              </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/Dio30" target="_blank">GitHub</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.linkedin.com/in/dione-padilha-a99864234/" target="_blank">LinkedIn</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+   
+   <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto nav justify-content-start">
+      <li class="nav-item">
+        <a class="nav-link active" href="https://github.com/Dio30" target="_blank">GitHub</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link active" href="https://www.linkedin.com/in/dione-padilha-a99864234/" target="_blank">LinkedIn</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <br>
   <center><u><h1>Bem Vindo</h1></u></center>
   {% if user.is_authenticated %}

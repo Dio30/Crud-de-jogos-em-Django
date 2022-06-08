@@ -58,7 +58,7 @@
                     <td>R$ {{ jogo.valor_do_jogo }}</td>
                     <td>{{ jogo.descrição_do_jogo }}</td>
                     <td><a href="{% url 'editar' jogo.pk %}" title="Editar"class="btn btn-warning btn-sm">
-                        <i class="fa fa-pencil" aria-hidden="true"></i></a> -- 
+                        <i class="fa fa-pencil" aria-hidden="true"></i></a> - 
                     <a href="{% url 'delete' jogo.pk %}" title="Deletar" class="btn btn-danger btn-sm">
                         <i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                 </tr>
@@ -113,7 +113,7 @@
 {% block footer %}
 <footer class="footer">
     <div class="container">
-        <br><br><br>
+        <br><br>
         <center><span class="text">Desenvolvido por Dione Rafael Padilha</span></center>
     </div>
 </footer>
